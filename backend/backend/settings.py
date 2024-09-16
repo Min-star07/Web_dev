@@ -11,9 +11,13 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import environ
+import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+env = environ.Env()
 BASE_DIR = Path(__file__).resolve().parent.parent
+# 读取.env文件，在服务器项目的根路径上要创建一个
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 
 # Quick-start development settings - unsuitable for production
@@ -74,18 +78,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "backend.wsgi.application"
 
-
 # Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "TT_inst_calibration",
-        "USER": "root",
-        "PASSWORD": "@Min08240707",
-        "HOST": "localhost",
-        "PORT": 3306,
+        "NAME": env.str("DB_NAME", "TT_inst_calibration"),
+        "USER": env.str("DB_USER", "root"),
+        "PASSWORD": env.str("DB_PASSWORD", "@Min08240707"),
+        "HOST": env.str("DB_HOST", "localhost"),
+        "PORT": env.str("DB_PORT", 3306),
     }
 }
 
@@ -125,6 +128,7 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = "static/"
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -160,14 +164,14 @@ LOGGING = {
         "file": {
             "level": "DEBUG",
             "class": "logging.FileHandler",
-            "filename": "/data/log/oa.log",
+            "filename": "/home/lim/Desktop/other/Django/TTdata/backend/data/log/oa.log",
             "formatter": "verbose",
         },
     },
     "loggers": {
         "django": {
             "handlers": ["console", "file"],
-            "level": "DEBUG",
+            "level": "INFO",
         },
     },
 }
