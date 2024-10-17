@@ -89,7 +89,7 @@ const onSubmit = () => {
 
 <template>
   <el-container class="container">
-    <el-aside class="aside" width="asideWidth"
+    <el-aside class="aside" :width="asideWidth"
       ><router-link to="/" class="brand"
         ><strong>TT </strong
         ><span v-show="!isCollapse"> calibration</span></router-link
@@ -104,11 +104,11 @@ const onSubmit = () => {
         :collapse="isCollapse"
         :collapse-transition="false"
       >
-        <el-menu-item index="1">
+        <el-menu-item index="1" :route="{ name: 'home' }">
           <el-icon><HomeFilled /></el-icon>
           <span>Home</span>
         </el-menu-item>
-        <el-menu-item index="2" :route="{ name: 'cb22' }">
+        <el-menu-item index="2" :route="{ name: 'calibration' }">
           <el-icon><HelpFilled /></el-icon>
           <span>CB22</span>
         </el-menu-item>
@@ -117,42 +117,6 @@ const onSubmit = () => {
             <el-icon><Memo /></el-icon>
             <span>TT installation</span>
           </template>
-          <el-sub-menu index="3-1">
-            <template #title>Layer One</template>
-            <el-menu-item index="3-1-1">table</el-menu-item>
-            <el-menu-item index="3-1-2">chart</el-menu-item>
-          </el-sub-menu>
-          <el-sub-menu index="3-2">
-            <template #title>Layer Two</template>
-            <el-menu-item index="3-2-1">table</el-menu-item>
-            <el-menu-item index="3-2-2">chart</el-menu-item>
-          </el-sub-menu>
-          <el-sub-menu index="3-3">
-            <template #title>Layer Three</template>
-            <el-menu-item index="3-3-1">table</el-menu-item>
-            <el-menu-item index="3-3-2">chart</el-menu-item>
-          </el-sub-menu>
-        </el-sub-menu>
-        <el-sub-menu index="4">
-          <template #title>
-            <el-icon><Promotion /></el-icon>
-            <span>External link</span>
-          </template>
-          <el-menu-item index="4-1-1">link1</el-menu-item>
-          <el-menu-item index="4-1-2">link2</el-menu-item>
-          <el-menu-item index="4-1-2">link3</el-menu-item>
-        </el-sub-menu>
-        <el-sub-menu index="5">
-          <template #title>
-            <el-icon><ScaleToOriginal /></el-icon>
-            <span>Others</span>
-          </template>
-          <el-menu-item index="5-1-1">imgs</el-menu-item>
-          <el-menu-item index="5-1-2">text</el-menu-item>
-          <el-menu-item index="5-1-3">media</el-menu-item>
-          <el-menu-item index="5-1-4" :route="{ name: 'test' }"
-            >test</el-menu-item
-          >
         </el-sub-menu>
       </el-menu>
     </el-aside>
@@ -181,15 +145,16 @@ const onSubmit = () => {
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item @click="onControlResetPwdDialog"
-                >修改密码</el-dropdown-item
+                >modify code</el-dropdown-item
               >
               <el-dropdown-item divided @click="onExit"
-                >退出登录</el-dropdown-item
+                >log out</el-dropdown-item
               >
             </el-dropdown-menu>
           </template>
         </el-dropdown>
       </el-header>
+      <!-- <el-main>Main</el-main> -->
       <el-main><RouterView></RouterView></el-main>
     </el-container>
   </el-container>

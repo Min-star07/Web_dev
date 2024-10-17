@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     "apps.oaauth",
+    "apps.cb22",
 ]
 
 MIDDLEWARE = [
@@ -84,7 +85,7 @@ WSGI_APPLICATION = "backend.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": env.str("DB_NAME", "TT_inst_calibration"),
+        "NAME": env.str("DB_NAME", "TT_installation"),
         "USER": env.str("DB_USER", "root"),
         "PASSWORD": env.str("DB_PASSWORD", "@Min08240707"),
         "HOST": env.str("DB_HOST", "localhost"),
@@ -130,6 +131,10 @@ USE_TZ = False
 STATIC_URL = "static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
+
+# MEDIA_ROOT = BASE_DIR / "media"
+# # # http://127.0.0.1:8000/media/abc.png
+# MEDIA_URL = "/media/"
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 

@@ -2,6 +2,8 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import login from "@/views/login/login.vue";
 import frame from "@/views/main/frame.vue";
 import { useAuthStore } from "@/stores/auth";
+import calibration from "@/views/cb22/calibration.vue";
+import home from "@/views/home/home.vue";
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
@@ -9,6 +11,18 @@ const router = createRouter({
       path: "/",
       name: "frame",
       component: frame,
+      children: [
+        {
+          path: "/cb22/calibration",
+          name: "calibration",
+          component: calibration,
+        },
+        {
+          path: "/",
+          name: "home",
+          component: home,
+        },
+      ],
     },
     {
       path: "/login",

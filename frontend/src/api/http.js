@@ -47,6 +47,57 @@ class Http {
       }
     });
   }
+  // downloadFile(path, params) {
+  //   return new Promise(async (resolve, reject) => {
+  //     try {
+  //       console.log("Initiating file download...");
+  //       console.log("Path:", path);
+  //       console.log("Params:", params);
+  //       let result = await this.instance.get(path, {
+  //         params,
+  //         responseType: "blob",
+  //       });
+  //       // console.log("File download successful:", result);
+  //       resolve(result);
+  //     } catch (err) {
+  //       // console.error("Error during file download:", err);
+  //       let detail = err.response.data.detail;
+  //       // console.error("Response status:", err.response.status);
+  //       // console.error("Response data:", err.response.data);
+  //       reject(detail);
+  //     }
+  //   });
+  // }
+
+  downloadFile(path, params) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let result = await this.instance.get(path, {
+          params,
+          responseType: "blob",
+        });
+        resolve(result);
+      } catch (err) {
+        let detail = err.response.data.detail;
+        reject(detail);
+      }
+    });
+  }
+
+  Uploadfigure(path, params) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let result = await this.instance.get(path, {
+          params,
+          responseType: "blob",
+        });
+        resolve(result);
+      } catch (err) {
+        let detail = err.response.data.detail;
+        reject(detail);
+      }
+    });
+  }
 }
 
 export default new Http();
