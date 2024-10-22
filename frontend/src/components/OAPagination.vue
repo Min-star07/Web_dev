@@ -20,7 +20,7 @@ let page_size = ref(0);
   <div style="display: flex; justify-content: space-between">
     <el-form-item label="page:">
       <el-select v-model="page_size" size="small" style="width: 100px">
-        <el-option select label="10 item/page" :value="10" />
+        <el-option select label="8 item/page" :value="8" />
         <el-option label="64 item/page" :value="64" />
       </el-select>
     </el-form-item>

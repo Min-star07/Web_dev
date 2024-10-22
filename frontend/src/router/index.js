@@ -4,6 +4,8 @@ import frame from "@/views/main/frame.vue";
 import { useAuthStore } from "@/stores/auth";
 import calibration from "@/views/cb22/calibration.vue";
 import home from "@/views/home/home.vue";
+import ttmodel from "@/views/threedmodel/ttmodel.vue";
+import ttcalibration from "@/views/ttcalibration/ttcalibration.vue";
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
@@ -21,6 +23,16 @@ const router = createRouter({
           path: "/",
           name: "home",
           component: home,
+        },
+        {
+          path: "/threedmodel/ttmodel",
+          name: "ttmodel",
+          component: ttmodel,
+        },
+        {
+          path: "/ttcalibration/ttcalibration",
+          name: "ttcalibration",
+          component: ttcalibration,
         },
       ],
     },

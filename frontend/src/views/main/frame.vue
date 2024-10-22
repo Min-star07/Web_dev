@@ -112,12 +112,14 @@ const onSubmit = () => {
           <el-icon><HelpFilled /></el-icon>
           <span>CB22</span>
         </el-menu-item>
-        <el-sub-menu index="3">
-          <template #title>
-            <el-icon><Memo /></el-icon>
-            <span>TT installation</span>
-          </template>
-        </el-sub-menu>
+        <el-menu-item index="3" :route="{ name: 'ttcalibration' }">
+          <el-icon><Notebook /></el-icon>
+          <span>TT calibration</span>
+        </el-menu-item>
+        <el-menu-item index="4" :route="{ name: 'ttmodel' }">
+          <el-icon><Grid /></el-icon>
+          <span>3D model</span>
+        </el-menu-item>
       </el-menu>
     </el-aside>
     <el-container>
